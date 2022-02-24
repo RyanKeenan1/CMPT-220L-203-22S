@@ -1,5 +1,7 @@
 package base;
 
+import java.util.Scanner;
+
 public class Main {
     /**
      * In our Assignment here we're running a little lemonade stand and we also sell pretzels. We need to keep track of
@@ -29,11 +31,45 @@ public class Main {
 
     public static void main(String[] args) {
         //	Replace this with your dry inventory function!
-        wet_inventory();
+        // wet_inventory();
+        dry_inventory();
     }
 
     static void dry_inventory() {
+        Scanner userInput = new Scanner(System.in);
         // Your DRY Solution goes here!
+
+        System.out.println("WELCOME! Please follow the inputs below. When you are finished type 'stop' to print out final sales.");
+
+        String currentInput;
+
+        do {
+            System.out.println("Please enter the number of pretezels sold: ");
+            int numPretezelsSold = userInput.nextInt();
+            pretzels_available -= numPretezelsSold;
+            cash += 2 * numPretezelsSold;
+
+            System.out.println("Please enter the number of lemonades sold: ");
+            int numLemonadesSold = userInput.nextInt();
+            lemonades_available -= numLemonadesSold;
+            cash += 8 * numLemonadesSold;
+
+            System.out.println("Please enter any tips received on this sale: ");
+            tips += userInput.nextDouble();
+
+            System.out.println("If you would like to enter another sale, press enter. If not type 'stop'");
+
+            // idk why two works but it does
+            currentInput = userInput.nextLine();
+            currentInput = userInput.nextLine();
+        } while (!currentInput.equals("stop"));
+
+
+        System.out.println("Results for the hour!");
+        System.out.println("Lemonades Inventory: " + lemonades_available);
+        System.out.println("Pretzels Inventory: " + pretzels_available);
+        System.out.println("Cash: " + cash);
+        System.out.println("Tips: " + tips);
     }
 
     static void wet_inventory() {
