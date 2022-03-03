@@ -28,5 +28,13 @@ public class Main {
         // Create an Queue, Populate it, and Print it out
         // Create an Stack, Populate it, and Print it out
         // Using the information in the Lab 6 Jupyter Notebook create an instance of plant here.
+        Plant doug = new Plant("Trees",true,"Doug");
+        Plant alex = new Plant("Beeboop plant",true,"Alex");
+
+        doug.wateringInstructions("Make sure there is enough rain in climate");
+        doug.sunlightRequirements("Make sure tree can absorb all sunlight");
+
+        alex.wateringInstructions("Made up plant. Doesn't need any water");
+        alex.sunlightRequirements("Made up plant. It makes its own light!");
     }
 }
